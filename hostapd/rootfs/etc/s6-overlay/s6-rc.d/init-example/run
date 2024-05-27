@@ -4,5 +4,23 @@
 # Home Assistant Community Add-on: Example
 # Example init script, runs before any other service
 # ==============================================================================
+echo '' > /tmp/hostapd.log
 
-bashio::log.info "Oh, hi! I'm the init script!"
+bashio::log.info "Init ..."  
+declare DIR 
+
+DIR="/config/hotspot_wifi"
+
+# Ensure configuration exists
+if ! bashio::fs.directory_exists "${DIR}"; then
+	bashio::log.info "Création du répertoire"
+	mkdir -p "${DIR}/hostapd" || bashio::exit.nok "Failed to create hostapd configuration directory"
+	
+	#### hostapd
+	bashio::log.info "MV de ${DIR}/hostapd/hostapd.conf"
+	mv /etc/hostapd/hostapd.conf "${DIR}/hostapd/hostapd.conf"
+fi
+
+ifconfig wlo1 down
+ifconfig wlo1 up
+
