@@ -2,6 +2,11 @@ ARG BUILD_FROM=ghcr.io/hassio-addons/base:16.0.0
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
+RUN apt-get update
+RUN apt-get install -y software-properties-common 
+RUN add-apt-repository ppa:ondrej/php
+RUN apt-get install -y iptables iproute2 iw net-tools hostapd dnsmasq
+
 # Copy root filesystem
 COPY rootfs /
 
