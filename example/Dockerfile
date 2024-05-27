@@ -10,11 +10,6 @@ RUN apt-get install -y iptables iproute2 iw net-tools hostapd dnsmasq
 # Copy root filesystem
 COPY rootfs /
 
-# Setup base
-RUN apk add --no-cache \
-    coreutils=9.5-r1 \
-    wget=1.24.5-r0
-
 # Build arguments
 ARG BUILD_ARCH
 ARG BUILD_DATE
