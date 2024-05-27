@@ -1,15 +1,17 @@
 ---
-name: Example
+name: Hostapd
 version: dev
-slug: example
-description: Example add-on by Community Home Assistant Add-ons
-url: https://github.com/hassio-addons/addon-example
-codenotary: codenotary@frenck.dev
+slug: Hostapd
+description: Add-ons Hostapd pour Home Assistant
+url: https://github.com/cyberax64/addon-hostapd
+codenotary: cyberax@protonmail.com
 init: false
 arch:
-  - aarch64
   - amd64
+  - i386
+  - aarch64
   - armv7
+  - armhf
 options:
   log_level: info
   seconds_between_quotes: 5
