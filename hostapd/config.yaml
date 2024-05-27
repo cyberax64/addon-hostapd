@@ -1,0 +1,20 @@
+---
+name: Hostapd
+version: dev
+slug: Hostapd
+description: Add-ons Hostapd pour Home Assistant
+url: https://github.com/cyberax64/addon-hostapd
+codenotary: cyberax@protonmail.com
+init: false
+arch:
+  - amd64
+  - i386
+  - aarch64
+  - armv7
+  - armhf
+options:
+  log_level: info
+  seconds_between_quotes: 5
+schema:
+  log_level: list(trace|debug|info|notice|warning|error|fatal)
+  seconds_between_quotes: int(1,120)
